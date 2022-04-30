@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+// serve db notes to front end
+app.get('/api/notes', (req, res) => res.json(storedNotes));
+
 //serve html directories to front end
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
