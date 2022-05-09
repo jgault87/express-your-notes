@@ -26,9 +26,32 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+//route to read db json file notes to front end
+app.get("/api/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "/db/db.json"));
+});
+
+
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
+
+
+app.post("/api/notes", (req, res) => {
+  let newNote = req.body;
+  let storedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+  storedNotes.push(newNote);
+
+
+  
+ fs.writeFileSync("./db/db.json", JSON.stringify(storedNotes));
+    res.json(storedNotes);
+    console.log(storedNotes);
+
+
+
+});
+
 
 //server listener
 app.listen(PORT, () =>
