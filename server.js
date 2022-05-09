@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+
+//use heroku env port or 8005
 const PORT = process.env.PORT || 8005;
 
 const storedNotes = require('./db/db.json');
@@ -15,7 +17,7 @@ app.use(express.json());
 
 
 // serve db notes to front end
-app.get('/api/notes', (req, res) => res.json(storedNotes));
+// 
 
 //serve html directories to front end
 app.get('/', (req, res) =>
@@ -27,9 +29,7 @@ app.get('/notes', (req, res) =>
 );
 
 //route to read db json file notes to front end
-app.get("/api/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/db/db.json"));
-});
+app.get('/api/notes', (req, res) => res.json(storedNotes));
 
 
 app.get('*', (req, res) =>
@@ -39,7 +39,6 @@ app.get('*', (req, res) =>
 
 app.post("/api/notes", (req, res) => {
   let newNote = req.body;
-  let storedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
   storedNotes.push(newNote);
 
 
