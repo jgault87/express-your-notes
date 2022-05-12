@@ -1,4 +1,5 @@
 # Express Your Notes
+  ![](demo.gif)
   
   [![license](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
