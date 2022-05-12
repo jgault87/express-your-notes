@@ -30,8 +30,8 @@
   clone or fork this repo/ install the dependencies located in the package.json by running node command "npm i" from root terminal. You can also visit the deployed Heroku URL for demo purposes
 
   ## Usage 
-  A simple note-taking app
-  visit my deployed page at [Heroku](https://obscure-escarpment-75812.herokuapp.com/)
+  A simple note-taking app.
+  Visit my deployed page at [Heroku](https://obscure-escarpment-75812.herokuapp.com/)
 
   ## Contributions
   n/a
